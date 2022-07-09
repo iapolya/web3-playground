@@ -21,4 +21,12 @@ describe('simple storage', function () {
     const currentValue = await simpleStorage.retrieve()
     assert.equal(currentValue.toString(), expectedValue)
   })
+
+  it('add persion', async function () {
+    const PERSON_NAME = 'polly'
+    const PERSON_NUMBER = '3'
+    await simpleStorage.addPerson(PERSON_NAME, PERSON_NUMBER)
+    let personFavNum = await simpleStorage.nameToFavNum(PERSON_NAME)
+    assert.equal(personFavNum, PERSON_NUMBER)
+  })
 })
