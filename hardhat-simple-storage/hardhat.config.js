@@ -15,6 +15,12 @@ module.exports = {
       accounts: [PRIVATE_KEY],
       chainId: 4,
     },
+    // yarn hardhat node
+    // yarn hardhat run scripts/deploy.js --network localhost
+    localhost: {
+      url: 'http://127.0.0.1:8545/',
+      chainId: 31337,
+    },
   },
   etherscan: {
     apiKey: ETHERSCAN_API,
