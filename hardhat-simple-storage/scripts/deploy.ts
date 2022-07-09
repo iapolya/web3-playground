@@ -1,5 +1,5 @@
-const { ethers, run } = require('hardhat')
-require('dotenv').config()
+import { ethers, run, network } from 'hardhat'
+import 'dotenv/config'
 
 async function main() {
   const SimpleStorageFactory = await ethers.getContractFactory('SimpleStorage')
@@ -24,7 +24,7 @@ async function main() {
   console.log(`Updated favourite number: ${updatedFavNumber.toString()}`)
 }
 
-async function verify(contractAddresses, args) {
+async function verify(contractAddresses: string, args: any[]) {
   console.log('Verifying...')
   // run allow us to run (smeshno) any available tasks
   // to view tasks just run "yarn hardhat"
@@ -34,7 +34,7 @@ async function verify(contractAddresses, args) {
       address: contractAddresses,
       constructorArguments: args,
     })
-  } catch (e) {
+  } catch (e: any) {
     if (e.message.toLowerCase().includes('already verified')) {
       console.log('Already Verified!')
     } else {

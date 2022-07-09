@@ -1,12 +1,15 @@
-const { ethers } = require('hardhat')
-const { assert } = require('chai')
+import { ethers } from 'hardhat'
+import { assert } from 'chai'
+import { SimpleStorage, SimpleStorage__factory } from '../typechain-types'
 
 describe('simple storage', function () {
-  let simpleStorageFactory
-  let simpleStorage
+  let simpleStorageFactory: SimpleStorage__factory
+  let simpleStorage: SimpleStorage
 
   beforeEach(async function () {
-    simpleStorageFactory = await ethers.getContractFactory('SimpleStorage')
+    simpleStorageFactory = (await ethers.getContractFactory(
+      'SimpleStorage'
+    )) as SimpleStorage__factory
     simpleStorage = await simpleStorageFactory.deploy()
   })
 
@@ -27,6 +30,6 @@ describe('simple storage', function () {
     const PERSON_NUMBER = '3'
     await simpleStorage.addPerson(PERSON_NAME, PERSON_NUMBER)
     let personFavNum = await simpleStorage.nameToFavNum(PERSON_NAME)
-    assert.equal(personFavNum, PERSON_NUMBER)
+    assert.equal(personFavNum.toString(), PERSON_NUMBER)
   })
 })

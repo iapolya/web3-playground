@@ -1,9 +1,10 @@
-require('@nomiclabs/hardhat-waffle')
-require('dotenv').config()
-require('@nomiclabs/hardhat-etherscan') // in ts import '@nomiclabs/hardhat-etherscan'
-require('./tasks/blockNumber')
-require('hardhat-gas-reporter')
-require('solidity-coverage')
+import '@nomiclabs/hardhat-waffle'
+import 'dotenv/config'
+import '@nomiclabs/hardhat-etherscan'
+import './tasks/blockNumber'
+import 'hardhat-gas-reporter'
+import 'solidity-coverage'
+import '@typechain/hardhat'
 
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL
 const PRIVATE_KEY = process.env.PRIVATE_KEY
