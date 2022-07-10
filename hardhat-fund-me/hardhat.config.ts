@@ -1,6 +1,7 @@
 import { HardhatUserConfig } from 'hardhat/config'
 import '@nomicfoundation/hardhat-toolbox'
 import 'hardhat-deploy'
+import 'dotenv/config'
 
 const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL
 const PRIVATE_KEY = process.env.PRIVATE_KEY || ''
@@ -8,14 +9,13 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY || ''
 const COINMARKETCAP_KEY = process.env.COINMARKETCAP_KEY
 
 const config: HardhatUserConfig = {
-  // solidity: '0.8.9',
   solidity: {
     compilers: [
       {
         version: '0.8.9',
       },
       {
-        version: '0.6.6',
+        version: '0.6.6', // to support MockV3Aggregator
       },
     ],
   },
@@ -25,11 +25,11 @@ const config: HardhatUserConfig = {
       chainId: 31337,
       // gasPrice: 130000000000,
     },
-    // rinkeby: {
-    //   url: RINKEBY_RPC_URL,
-    //   accounts: [PRIVATE_KEY],
-    //   chainId: 4,
-    // },
+    rinkeby: {
+      url: RINKEBY_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      chainId: 4,
+    },
   },
   gasReporter: {
     enabled: false,
