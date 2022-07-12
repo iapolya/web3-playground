@@ -26,7 +26,7 @@ describe('FundMe', async function () {
 
   describe('constructor', async function () {
     it('check mock address', async function () {
-      const response = await fundMe.priceFeed()
+      const response = await fundMe.getPriceFeed()
       assert.equal(response, mockV3Aggregator.address)
     })
   })
@@ -38,13 +38,13 @@ describe('FundMe', async function () {
 
     it('send some ETH', async function () {
       await fundMe.fund({ value: sendValue })
-      const response = await fundMe.addressToAmountFunded(deployer)
+      const response = await fundMe.getAmountByAddress(deployer)
       assert.equal(response.toString(), sendValue.toString())
     })
 
     it('add funder', async function () {
       await fundMe.fund({ value: sendValue })
-      const response = await fundMe.funders(0)
+      const response = await fundMe.getFunder(0)
       assert.equal(response, deployer)
     })
   })

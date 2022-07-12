@@ -32,11 +32,12 @@ const config: HardhatUserConfig = {
     },
   },
   gasReporter: {
-    enabled: false,
+    enabled: true,
     outputFile: 'gas-report.txt',
     noColors: true,
     currency: 'USD',
     coinmarketcap: COINMARKETCAP_KEY,
+    token: 'MATIC',
   },
   namedAccounts: {
     deployer: {
