@@ -8,7 +8,7 @@ describe('FundMe', async function () {
   let fundMe: Contract
   let deployer: Address
   let mockV3Aggregator: MockV3Aggregator
-  const sendValue = ethers.utils.parseEther('1')
+  const sendValue = ethers.utils.parseEther('0.1')
 
   beforeEach(async function () {
     // в hardhat network просто доступные аккаунты
