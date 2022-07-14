@@ -1,4 +1,13 @@
 {
+  "name": "fundme",
+  "author": "polly",
+  "scripts": {
+    "test": "yarn hardhat test",
+    "test:staging": "yarn hardhat test --network rinkeby",
+    "lint": "yarn solhint 'contracts/*.sol",
+    "lint:fix": "yarn solhint 'contracts/*.sol --fix",
+    "covarage": "yarn hardhat coverage"
+  },
   "devDependencies": {
     "@chainlink/contracts": "^0.4.1",
     "@ethersproject/abi": "^5.4.7",
